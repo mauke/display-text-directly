@@ -1,0 +1,7 @@
+^pak$
+^\.git
+^MANIFEST$
+^MANIFEST\.SKIP$
+^META\.json$
+^_build$
+^display-text-directly-.*\.xpi$
