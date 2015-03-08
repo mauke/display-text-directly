@@ -5,3 +5,4 @@
 ^META\.json$
 ^_build$
 ^display-text-directly-.*\.xpi$
+\.swp$
