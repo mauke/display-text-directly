@@ -1,8 +1,9 @@
 ^pak$
 ^\.git
+^\..*\.swp$
 ^MANIFEST$
 ^MANIFEST\.SKIP$
 ^META\.json$
 ^_build$
+^xpi$
 ^display-text-directly-.*\.xpi$
-\.swp$
