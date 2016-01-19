@@ -17,10 +17,10 @@ const me = {
 
     target_pattern: /^(?!)/,
     update_pattern: function () {
-        let overrides = this.branch.getCharPref(MY_PREF_OVERRIDES);
-        let words = overrides.match(/\S+/g) || [];
-        let ct_anychar = "[!#$%&'*+\\-.^`|~\\w]";
-        let words_trans = words.map(
+        const overrides = this.branch.getCharPref(MY_PREF_OVERRIDES);
+        const words = overrides.match(/\S+/g) || [];
+        const ct_anychar = "[!#$%&'*+\\-.^`|~\\w]";
+        const words_trans = words.map(
             function (s)
                 s.replace(/([*?]+)|\W/g,
                     function (m0, m1)
@@ -28,7 +28,7 @@ const me = {
                         '\\' + m0
                 )
         );
-        let combined =
+        const combined =
             words_trans.length ? '(?:' + words_trans.join('|') + ')(?![^; \\t])' :
             '(?!)';
         this.target_pattern = new RegExp('^' + combined, 'i');
@@ -40,10 +40,10 @@ const me = {
             case http_on_examine_cached_response:
             case http_on_examine_merged_response:
             {
-                let chan = subject.QueryInterface(Ci.nsIHttpChannel);
+                const chan = subject.QueryInterface(Ci.nsIHttpChannel);
                 try {
-                    let ct_old = chan.contentType;
-                    let ct_new = ct_old.replace(this.target_pattern, 'text/plain');
+                    const ct_old = chan.contentType;
+                    const ct_new = ct_old.replace(this.target_pattern, 'text/plain');
                     if (ct_old === ct_new) break;
                     chan.contentType = ct_new;
                 } catch (e) {
@@ -64,7 +64,7 @@ const me = {
 };
 
 function startup(data, reason) {
-    let default_prefs = Services.prefs.getDefaultBranch(MY_PREF_BRANCH);
+    const default_prefs = Services.prefs.getDefaultBranch(MY_PREF_BRANCH);
     default_prefs.setCharPref(MY_PREF_OVERRIDES, 'text/x-*');
 
     me.branch = Services.prefs.getBranch(MY_PREF_BRANCH);
