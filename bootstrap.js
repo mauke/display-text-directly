@@ -1,7 +1,6 @@
 'use strict';
 
 Components.utils.import('resource://gre/modules/Services.jsm');
-//Components.utils.import('resource://gre/modules/devtools/Console.jsm');
 
 const http_on_examine_response        = 'http-on-examine-response';
 const http_on_examine_cached_response = 'http-on-examine-cached-response';
