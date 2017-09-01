@@ -156,7 +156,7 @@ if (!-d $xpi) {
 }
 
 for my $file (@files) {
-    if ($file eq 'install.rdf') {
+    if ($file eq 'manifest.json') {
         my $contents = slurp fopen $file;
         $contents =~ s{
             \$\{ (?: ([^{}]*) \} )?

@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Display Text Directly",
+    "description": "Treat \"text/x-*\" as \"text/plain\"",
+    "author": "Lukas Mai",
+    "version": "${VERSION}",
+    "permissions": [
+        "*://*/*",
+        "storage",
+        "webRequest",
+        "webRequestBlocking"
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "options_ui": {
+        "browser_style": true,
+        "page": "options.html"
+    },
+    "applications": {
+        "gecko": {
+            "id": "display-text-directly@lukas-mai.addons.mozilla.org",
+            "strict_min_version": "48.0"
+        }
+    }
+}

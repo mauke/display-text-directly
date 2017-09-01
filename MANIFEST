@@ -1,3 +1,4 @@
-bootstrap.js
-install.rdf
-options.xul
+manifest.json
+background.js
+options.html
+options.js
