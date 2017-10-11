@@ -48,18 +48,14 @@ browser.storage.onChanged.addListener((changes, area) => {
 
 browser.webRequest.onHeadersReceived.addListener(
     (details) => {
-        console.log('considering ' + details.url);
         const headers = details.responseHeaders;
         for (const header of headers) {
-            console.log('checking ' + header.name);
             if (header.name.toLowerCase() === 'content-type') {
                 const old_value = header.value;
                 if (old_value) {
-                    console.log('found CT ' + old_value);
                     const new_value = old_value.replace(Current_content_type_re, 'text/plain');
                     if (new_value !== old_value) {
                         header.value = new_value;
-                        console.log('rewriting to ' + header.value);
                         return { responseHeaders: headers };
                     }
                 }
